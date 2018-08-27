@@ -1,8 +1,6 @@
 /*
  *  Matrix Task Processor - tasks module
- *  Based on Operating Systems: Three Easy Pieces by R. Arpaci-Dusseau and A. Arpaci-Dusseau
  * 
- *  Assignment 3 code
  *  Program operates on tasks submitted to the tasks_input directory
  *  Results are created in the tasks_output directory
  *
@@ -12,11 +10,6 @@
  *  Program is designed to run as a daemon (i.e. forever) until receiving a request to exit.
  *
  *  This program mimics the client/server processing model without the use of any networking constructs.
- *
- *  Wes J. Lloyd
- *  University of Washington, Tacoma
- *  TCSS 422 - Operating Systems
- *  Spring 2017
  */
 
 #include <stdio.h>
@@ -265,45 +258,22 @@ task_t *processTask(char * task)
  */
 void *dotasks(void * arg)
 {
-  printf("Expected print in dotask\n");
+  // printf("Expected print in dotask\n");
   char out_dir[BUFFSIZ] = "tasks_output";
   //char static_task[BUFFSIZ] = "";
   FILE *matrix_file;
   int ** matrix;
 
-  // Implement the consumer thread code
   // The consumer should run forever - constantly performing tasks from the bounded buffer
   // The consumer should cause the program to exit when the 'x' command is received
   while (1)
   {
-    //
-    // TO DO
-    //
-    // Read command to perform from the bounded buffer HERE
-
-
+    
     char * task = get();
 
 
     //char * task = (char *) &static_task;
     //sprintf(task, "c a1 20 20 100");
-
-
-
-    // display matrix command example
-    //sprintf(task, "d a2 10 10 100");
-    // sum matrix command example
-    //sprintf(task, "s a3 5 5 1");
-    // avg matrix command example
-    //sprintf(task, "a a4 5 5 1");
-    // remove matrix command example
-    //sprintf(task, "r a1 20 20 100");
-    // exit command example
-    //sprintf(task, "x");
-
-    // TO DO
-    // Remove this sleep command - it is here for demonstration purposes only
-    // For now this puts a 1 sec interval between repeating the same command over and over again 
 
     printf("***************DO TASK: '%s'\n",task);
 

@@ -1,8 +1,4 @@
 /*
- *  Matrix Task Processor
- *  Based on Operating Systems: Three Easy Pieces by R. Arpaci-Dusseau and A. Arpaci-Dusseau
- * 
- *  Assignment 3 code
  *  Program operates on tasks submitted to the tasks_input directory
  *  Results are created in the tasks_output directory
  *
@@ -13,10 +9,6 @@
  *
  *  This program mimics the client/server processing model without the use of any networking constructs.
  *
- *  Wes J. Lloyd
- *  University of Washington, Tacoma
- *  TCSS 422 - Operating Systems
- *  Spring 2017
  */
 
 #include <stdio.h>
@@ -29,24 +21,16 @@
 
 int main (int argc, char * argv[])
 {
-  // Uncomment to see example operation of the readtasks() routine
-  //readtasks((void *)100);  
-
-  // Uncomment to see example operation of the dotasks() routine
-  //dotasks((void *) NULL);
-
-  int tempMS = 500;
+  int defaultMS = 500;
 
   if (argc != 1) {
       tempMS = atoi(argv[1]);
   }
   
-
-  // To do
   pthread_t p1, p2, p3, p4;
 
   //thread for read tasks
-  pthread_create(&p1, NULL, readtasks, tempMS);
+  pthread_create(&p1, NULL, readtasks, defaultMS);
 
   //thread for do tasks
   pthread_create(&p2, NULL, dotasks, NULL);
